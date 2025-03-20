@@ -2,7 +2,23 @@ const addBtn = document.getElementById("addBtn");
 let input = document.getElementById("input");
 addBtn.addEventListener("click", () => {
   if (input.value === "") {
-    alert("please add a task and try again ");
+    Swal.fire({
+      title: "Please Add a Task and try again!",
+      showClass: {
+        popup: `
+          animate__animated
+          animate__fadeInUp
+          animate__faster
+        `
+      },
+      hideClass: {
+        popup: `
+          animate__animated
+          animate__fadeOutDown
+          animate__faster
+        `
+      }
+    });
   } else {
     let listContainer = document.getElementById("list-container");
     let div = document.createElement("div");
@@ -18,7 +34,7 @@ addBtn.addEventListener("click", () => {
             <span>${input.value}</span>
         </div>
         <div onclick='removeTask(this)' class="text-xl">
-            <i class="fa-solid fa-circle-xmark"></i>
+            <i class=" text-red-600 fa-solid fa-circle-xmark"></i>
           </div>
         </div>`;
 
